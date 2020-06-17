@@ -2,7 +2,7 @@ package com.company;
 
 public class SundayHW {
 
-    public static int Size = 1;
+    public static int Size = 4;
 
     public static void main(String[] args) {
 
@@ -17,55 +17,54 @@ public class SundayHW {
     }
 
     public static void Top() {
-        for (int line = 1; line < 5; line++) {
+        for (int line = 1; line <= Size; line++) {
             System.out.print("|");
-            for (int spaces = 1; spaces <= -1 * line + 4 + Size; spaces++) {
+            for (int spaces = 1; spaces <= -1 * line + Size; spaces++) {
                 System.out.print(" ");
             }
 
-            for (int dots = 1; dots <= 1 * line - 2 + Size; dots++) {
+            for (int dots = 1; dots <= line - 1; dots++) {
                 System.out.print("/");
             }
             System.out.print("*");
-            for (int dots = 1; dots <= 1 * line - 2 + Size; dots++) {
+            for (int dots = 1; dots <= line - 1; dots++) {
                 System.out.print("\\");
             }
 
-            for (int spaces = 1; spaces <= -1 * line + 4 + Size; spaces++) {
+            for (int spaces = 1; spaces <= -1 * line + Size; spaces++) {
                 System.out.print(" ");
             }
             System.out.println("|");
         }
     }
-        public static void Line () {
-            System.out.print("+");
-            for (int dash = 0; dash <= 7 + Size*Size; dash++) {
-                System.out.print("-");
+
+    public static void Line() {
+        System.out.print("+");
+        for (int dash = 0; dash <= -2 + Size * 2; dash++) {
+            System.out.print("-");
+        }
+        System.out.println("+");
+    }
+
+    public static void Bottom() {
+        for (int line = 1; line <= Size; line++) {
+            System.out.print("|");
+            for (int spaces = 1; spaces <= 2.5 * line - Size; spaces++) {
+                System.out.print(" ");
             }
-            System.out.println("+");
-        }
 
-        public static void Bottom () {
-            for (int line = 1; line < 4 + Size; line++) {
-                System.out.print("|");
-                for (int spaces = 1; spaces <= 1 * line -1 + Size; spaces++) {
-                    System.out.print(" ");
-                }
-
-                for (int dots = 1; dots <= -1 * line + 3 + Size; dots++) {
-                    System.out.print("\\");
-                }
-                System.out.print("*");
-                for (int dots = 1; dots <= -1 * line + 3 + Size; dots++) {
-                    System.out.print("/");
-                }
-
-                for (int spaces = 1; spaces <= 1 * line -1 + Size; spaces++) {
-                    System.out.print(" ");
-                }
-                System.out.println("|");
+            for (int dots = 1; dots <= Size - 1*line; dots++) {
+                System.out.print("\\");
             }
-        }
+            System.out.print("*");
+            for (int dots = 1; dots <= Size - 1*line; dots++) {
+                System.out.print("/");
+            }
 
-
+            for (int spaces = 1; spaces <= 2.5 * line - Size; spaces++) {
+                System.out.print(" ");
+            }
+            System.out.println("|");
         }
+    }
+}
