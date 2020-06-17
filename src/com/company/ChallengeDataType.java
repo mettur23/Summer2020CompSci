@@ -23,12 +23,13 @@ public class ChallengeDataType {
         String s = "Greehill ";
 
             Scanner sc = new Scanner(System.in);
+        System.out.println("Put in a word: ");
+        String c = sc.nextLine();
             System.out.println("Put in an integer");
             int a = sc.nextInt();
         System.out.println("Put in a decimal");
             Double b = sc.nextDouble();
-        System.out.println("Put in a word: ");
-            String c = sc.next();
+
 
             int totalint = i + a;
             Double totaldouble = d + b;
