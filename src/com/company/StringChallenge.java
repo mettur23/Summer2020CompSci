@@ -1,17 +1,18 @@
 /*
 Teja Mettu
 June/19/2020
-1. Initialize String S and Int N
-2. Create scanner input for String S
-3. identify String S indexes
-4. Set Integer T as the amount of Words in the String
-1<=T<=10
-2<=length of S<= 10000
-5. Main return method we used in the solve void
-6. Make a substring for the indexes
-Make variable for the substrings divided by 2. Out space after the return of the value of the index.
+1. Println: Ask user how many words they want and what words
+2. Create Scanner and name scanner sc
+3. Create an Integer for the number of words
+4.Create a String for the actual words
+5. Create a do-while loop which enforces the word limit of the number of words and creates a range of valid numbers
+6. Creates method titled Scramble
+7.Prints the Final Answer in the main
 
-NOTE: I worked with Megan on this code, and I found a new strategy, so I didn't follow my initial pseudocode.
+Scramble method:
+1. Create a string for even letters and for loop calling indexes that are even
+2. Create a string for odd letters and for loop calling indexes that are odd
+3. return the string variables by putting even letters space odd words
 */
 
 
@@ -24,10 +25,21 @@ public class StringChallenge {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter a word: ");
-        String userWord = sc.nextLine();
-        String newWord = scramble(userWord);
-        System.out.println(newWord);
+        int T;
+        String word;
+            do{System.out.println("How many words do you want to process in between 1-10?");
+            T = sc.nextInt();
+            } while (T<1 || T>=10);
+                for (int i = 1; i<= T; i++){
+                    do{
+                        System.out.println("What are the words you want to process?");
+                        word = sc.next();
+                    } while (word.length()<2 || word.length()>=10000);
+                    String dividedWord = scramble(word);
+                    System.out.println(dividedWord);
+                }
+
+
 
     }
 
