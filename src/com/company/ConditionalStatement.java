@@ -4,7 +4,7 @@ June 19, 2020
 1. Import java.util.Random
 2. Turn int n into a Random Number
 3. make an if statement that finds whether the int n is divisble by two without remainder
-4. if it is divisble without a remainder then println "Not weird"
+4. if it is divisible without a remainder then println "Not weird"
 5. make an else statement if it has a remainder print weird
 6. If even and in the range 2 to 5 print Not Weird
 7. If even and in the range of 6 to 20 print Weird
@@ -44,18 +44,22 @@ public class ConditionalStatement {
 
         while (loop == 1) { // loop MUST be greater than or equal to 1 in order to run
 
-            solve(); // runs the method
+            Random rand = new Random();
+            int max = 137; //setting maximum value at 137
+            int n = rand.nextInt(max);
+            n += 1; //setting range of values between 1-137
+            solve(n); // runs the method
 
             loop = 0;
 
-            sc = new Scanner(System.in); //asks whether user wants to play again
             System.out.println("Do you want to play again? Enter yes or no:");
-            YesOrNo = sc.nextLine();
+            YesOrNo = sc.next();
 
             if (YesOrNo.equals("yes")) { // if user wants to play it adds 1 to loop
                 loop=1;
+
             }
-            if (YesOrNo.equals("no")) { // subtracts 1 to loop if they don't want to play
+            else { // subtracts 1 to loop if they don't want to play
 
                 loop = 0;
 
@@ -70,14 +74,9 @@ public class ConditionalStatement {
 
 
 
-    public static void solve (){
+    public static void solve (int n){
 
-        Random rand = new Random();
-        int max = 137; //setting maximum value at 137
-        int n = rand.nextInt(max);
-        n += 1; //setting range of values between 1-137
 
-            while (n>=1 || n<=137){
 
                 if (n % 2 > 0){
                     System.out.println("Weird");
@@ -103,6 +102,6 @@ public class ConditionalStatement {
             }
 
 
-        }
+
 
     }
