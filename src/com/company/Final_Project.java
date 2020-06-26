@@ -1,27 +1,47 @@
 /*
 Teja Mettu
+June 25, 2020
+import java.io
+import the java.io file
+import the java.io file path
+import scanner wrap java.util.Arrays
+import scanner wrap java.util.Random
+import java scanner
+Declare public static integer FinalScore
+Declare scanner
+For each method, add a scanner for the return value
+Ask the user if they want to play the game yes or no
+Create string YesOrNo that equals the next line
+Create integer repeated that equals zero
+While
+-YesOrNo equals yes then ask user if they want to play sports words guessing game or even numbers game
+- Make String WordsOrNum that equals the next line
+- if statement = WordsOrNum equals words, then transfer program to the public static Words()
+- if WordsOrNum equals numbers then transfer program to the public static
+Ask user if they want to play again by answering yes or no
+YesOrNo equals the next line
+Make repeated++
+If
+- YesOrNo equals no, then print that the game has ended and print the final score
+- Print the number of attempts with repeated
+Make a public static void Words(String wordinput)  throws FileNotFoundException
+Create a file called file that has a pathname correspondent to the file text program with 20 tokens in 20 lines
+Create integer n that equals 0
+Make a new scanner called Scanner that corresponds with file
+While
+-while scanner has the next line, the String nextToken is equal to the next scanner
+- if statement = nextToken equals the word of the user input, then tell the user congrats they have guessed the right word and get one point.
+Final score advancing by ++
+Do the same class as numbers, but change the file to a different text file.
+ */
 
-1. import java.util.*
-import.java.io.*
-2. Create main and number and letter method
-3. Create a scanner in the main class
-4. Ask the user to guess a number or a word
-5. In the main method create if statement: If the user chooses word then run the Letter Method,
-                                           If the user chooses number then run the number method.
-6. IN the number and letter methods create a int points = 0.
-7. Make random strings in both classes
-8. In the main create a while loop that allows users to play again through an If statement
-If user says yes run loop, If user says No System.out.println("Thanks for playing")
-9. Create txt. file in the same folder, and list your options within that file for Numbers
-10.  Create txt. file in the same folder, and list your options within that file for Words
-*/
 package com.company;
 
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -29,6 +49,7 @@ import java.util.Scanner;
 
 public class Final_Project {
     public static int FinalScore;
+
     public static void main(String[] args) throws FileNotFoundException {
 
         Scanner sc = new Scanner(System.in);
@@ -38,95 +59,73 @@ public class Final_Project {
 
         while (YesOrNo.equals("yes")) {
 
-            System.out.println("Do you want to play the basketball words guessing game or even numbers guessing game? Enter words or numbers to choose: ");
+            System.out.println("Do you want to play the sports words guessing game or even numbers guessing game? Enter words or numbers to choose: ");
             String WordsOrNum = sc.nextLine();
 
             if (WordsOrNum.equals("words")) {
 
-                Words();
+                System.out.println("You have chosen the words game! Guess any word that's related to sports");
+                String Realwordinput = sc.nextLine();
+                Words(Realwordinput);
             }
             if (WordsOrNum.equals("numbers")) {
-                Numbers();
+                System.out.println("You have chosen the numbers game! Guess any random even number");
+                String Realnumberinput = sc.nextLine();
+                Numbers(Realnumberinput);
 
             }
             System.out.println("Would you like to the play again? Enter yes or no:");
             YesOrNo = sc.nextLine();
 
-            repeated ++;
+            repeated++;
         }
-        if (YesOrNo.equals("no")){
-            System.out.println("Thanks for playing. FINAL SCORE: " + FinalScore);
-            System.out.println("Number of Attempts:" + repeated );
-        }
-    }
-
-
-
-
-
-    public static void Words () throws FileNotFoundException {
-
-        System.out.println("You have chosen the words game! Guess any random word that's in the wordbank");
-        System.out.println("WordBank:\n" + "basketball\n" + "court\n" + "jersey\n" + "jordan\n" + "whistle\n" + "referee" + "\n");
-
-        Random rand = new Random();
-        int max = 5;
-        int n = rand.nextInt(max);
-
-
-
-        String temp1 = null;
-        try {
-            temp1 = Files.readAllLines(Paths.get("/Users/tejamettu/IdeaProjects/Summer2020_CompSci/src/com/company/Wordgame.txt")).get(n);
-
-        } catch (IOException e) {
-            System.out.println(e);
-        }
-
-        Scanner sc = new Scanner(System.in);
-        String wordinput = sc.nextLine();
-
-        if (wordinput.equals(temp1)) {
-            System.out.println("CONGRATS YOU HAVE GUESSED CORRECTLY. ADDED 1 POINT");
-            FinalScore++;
-        } else {
-            System.out.println("YOU HAVE FAILED. NO POINTS ADDED :(");
+        if (YesOrNo.equals("no")) {
+            System.out.println("The game has ended. FINAL SCORE: " + FinalScore);
+            System.out.println("Number of Attempts:" + repeated);
         }
     }
 
 
+    public static void Words(String wordinput) throws FileNotFoundException {
 
 
+        File file = new File("/Users/tejamettu/IdeaProjects/Summer2020_CompSci/src/com/company/Wordgame.txt");
+        int n = 0;
+
+        Scanner scanner = new Scanner(file);
 
 
-    public static void Numbers () throws FileNotFoundException {
+        while (scanner.hasNextLine()) {
+            String nextToken = scanner.next();
+            if (nextToken.equals(wordinput)) {
+                System.out.println("CONGRATS YOU HAVE GUESSED CORRECTLY. ADDED 1 POINT");
+                FinalScore++;
+            }
 
-        System.out.println("You have chosen the numbers game! Guess any random even number between 0-10");
-
-        Random rand = new Random();
-        int max = 5;
-        int n = rand.nextInt(max);
-
-
-
-        String temp2 = null;
-        try {
-            temp2 = Files.readAllLines(Paths.get("/Users/tejamettu/IdeaProjects/Summer2020_CompSci/src/com/company/Numbergame.txt")).get(n);
-
-        } catch (IOException e) {
-            System.out.println(e);
         }
 
-        Scanner sc = new Scanner(System.in);
-        String numberinput = sc.nextLine();
+    }
 
-        if (numberinput.equals(temp2)) {
-            System.out.println("CONGRATS YOU HAVE GUESSED CORRECTLY. ADDED 1 POINT");
-            FinalScore++;
-        } else {
-            System.out.println("YOU HAVE FAILED. NO POINTS ADDED :(");
+
+    public static void Numbers(String numberinput) throws FileNotFoundException {
+
+
+        File file = new File("/Users/tejamettu/IdeaProjects/Summer2020_CompSci/src/com/company/Numbergame.txt");
+        int n = 0;
+
+        Scanner scanner = new Scanner(file);
+
+
+        while (scanner.hasNextLine()) {
+            String nextToken = scanner.next();
+            if (nextToken.equals(numberinput)) {
+                System.out.println("CONGRATS YOU HAVE GUESSED CORRECTLY. ADDED 1 POINT");
+                FinalScore++;
+            }
+
         }
 
     }
 }
+
 
