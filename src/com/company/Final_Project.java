@@ -53,7 +53,16 @@ public class Final_Project {
     public static void main(String[] args) throws FileNotFoundException {
 
         Scanner sc = new Scanner(System.in);
-        System.out.println("Would you like to the play the game? Enter yes or no:");
+        System.out.println("" +
+                "█▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█\n" +
+                "█░░╦─╦╔╗╦─╔╗╔╗╔╦╗╔╗░░█\n" +
+                "█░░║║║╠─║─║─║║║║║╠─░░█\n" +
+                "█░░╚╩╝╚╝╚╝╚╝╚╝╩─╩╚╝░░█\n" +
+                "█▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█\n" +
+                "");
+        //https://www.messletters.com/en/text-art/
+
+        System.out.println("Would you like to play? Enter yes or no:");
         String YesOrNo = sc.nextLine();
         int repeated = 0;
 
@@ -74,7 +83,7 @@ public class Final_Project {
                 Numbers(Realnumberinput);
 
             }
-            System.out.println("Would you like to the play again? Enter yes or no:");
+            System.out.println("Would you like to try again? Enter yes or no:");
             YesOrNo = sc.nextLine();
 
             repeated++;
@@ -98,7 +107,14 @@ public class Final_Project {
         while (scanner.hasNextLine()) {
             String nextToken = scanner.next();
             if (nextToken.equals(wordinput)) {
-                System.out.println("CONGRATS YOU HAVE GUESSED CORRECTLY. ADDED 1 POINT");
+                System.out.println("\n" +
+                        "░██╗░░░░░░░██╗ ██╗ ███╗░░██╗ ███╗░░██╗ ███████╗ ██████╗░\n" +
+                        "░██║░░██╗░░██║ ██║ ████╗░██║ ████╗░██║ ██╔════╝ ██╔══██╗\n" +
+                        "░╚██╗████╗██╔╝ ██║ ██╔██╗██║ ██╔██╗██║ █████╗░░ ██████╔╝\n" +
+                        "░░████╔═████║░ ██║ ██║╚████║ ██║╚████║ ██╔══╝░░ ██╔══██╗\n" +
+                        "░░╚██╔╝░╚██╔╝░ ██║ ██║░╚███║ ██║░╚███║ ███████╗ ██║░░██║\n" +
+                        "░░░╚═╝░░░╚═╝░░ ╚═╝ ╚═╝░░╚══╝ ╚═╝░░╚══╝ ╚══════╝ ╚═╝░░╚═╝");
+                //https://fsymbols.com/generators/tarty/
                 FinalScore++;
             }
 
@@ -106,6 +122,7 @@ public class Final_Project {
 
     }
 
+    public static String nextToken;
 
     public static void Numbers(String numberinput) throws FileNotFoundException {
 
@@ -117,15 +134,25 @@ public class Final_Project {
 
 
         while (scanner.hasNextLine()) {
-            String nextToken = scanner.next();
+            nextToken = scanner.next();
             if (nextToken.equals(numberinput)) {
-                System.out.println("CONGRATS YOU HAVE GUESSED CORRECTLY. ADDED 1 POINT");
+                System.out.println("\n" +
+                        "░██╗░░░░░░░██╗ ██╗ ███╗░░██╗ ███╗░░██╗ ███████╗ ██████╗░\n" +
+                        "░██║░░██╗░░██║ ██║ ████╗░██║ ████╗░██║ ██╔════╝ ██╔══██╗\n" +
+                        "░╚██╗████╗██╔╝ ██║ ██╔██╗██║ ██╔██╗██║ █████╗░░ ██████╔╝\n" +
+                        "░░████╔═████║░ ██║ ██║╚████║ ██║╚████║ ██╔══╝░░ ██╔══██╗\n" +
+                        "░░╚██╔╝░╚██╔╝░ ██║ ██║░╚███║ ██║░╚███║ ███████╗ ██║░░██║\n" +
+                        "░░░╚═╝░░░╚═╝░░ ╚═╝ ╚═╝░░╚══╝ ╚═╝░░╚══╝ ╚══════╝ ╚═╝░░╚═╝");
+                //https://fsymbols.com/generators/tarty/
                 FinalScore++;
+
+
             }
 
-        }
 
+        }
     }
 }
+
 
 
