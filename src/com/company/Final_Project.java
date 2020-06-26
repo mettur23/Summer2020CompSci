@@ -57,18 +57,18 @@ public class Final_Project {
         String YesOrNo = sc.nextLine();
         int repeated = 0;
 
-        while (YesOrNo.equals("yes")) {
+        while (YesOrNo.equalsIgnoreCase("yes")) {
 
             System.out.println("Do you want to play the sports words guessing game or even numbers guessing game? Enter words or numbers to choose: ");
             String WordsOrNum = sc.nextLine();
 
-            if (WordsOrNum.equals("words")) {
+            if (WordsOrNum.equalsIgnoreCase("words")) {
 
                 System.out.println("You have chosen the words game! Guess any word that's related to sports");
                 String Realwordinput = sc.nextLine();
                 Words(Realwordinput);
             }
-            if (WordsOrNum.equals("numbers")) {
+            if (WordsOrNum.equalsIgnoreCase("numbers")) {
                 System.out.println("You have chosen the numbers game! Guess any random even number");
                 String Realnumberinput = sc.nextLine();
                 Numbers(Realnumberinput);
@@ -79,7 +79,7 @@ public class Final_Project {
 
             repeated++;
         }
-        if (YesOrNo.equals("no")) {
+        if (YesOrNo.equalsIgnoreCase("no")) {
             System.out.println("The game has ended. FINAL SCORE: " + FinalScore);
             System.out.println("Number of Attempts:" + repeated);
         }
